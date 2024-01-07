@@ -150,19 +150,20 @@ fn hangman() {
 
         let mut input = String::new();
         io::stdin().read_line(&mut input).expect("Input could not be read");
+        let input = input.trim();
 
-        if input == "exit\n" {
+        if input == "exit" {
             break;
         }
 
-        if input.len() != 2 {
+        if input.len() != 1 {
             println!("Please enter a single, lowercase letter as input");
             continue;
         }
 
         let letter = input.chars().next().unwrap();
 
-        if !letter.is_lowercase() || input != format!("{}\n", letter) {
+        if !letter.is_lowercase() || input != format!("{}", letter) {
             println!("Please enter a single, lowercase letter as input");
             continue;
         }
